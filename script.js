@@ -66,7 +66,7 @@ const bddJeu = {
                 { q: "Comment s'appelle l'intelligence artificielle et boss récurrent qui contrôle la planète Zebes ?", r: "Mother Brain" },
                 { q: "Quelle transformation permet à Samus de se rouler en boule ?", r: "La Morphing Ball (Boule Morphing)" },
                 { q: "Quel est le nom du dragon de l'espace, leader des Pirates de l'Espace ?", r: "Ridley" },
-                { q: "Dans quel jeu découvre-t-on pour la première fois que Samus est une femme ?", r: "Metroid (NES, 1986)" },
+                { q: "Dans quel jeu découvre-t-il pour la première fois que Samus est une femme ?", r: "Metroid (NES, 1986)" },
                 { q: "Qu'est-ce que le 'SA-X' dans Metroid Fusion ?", r: "Un parasite X qui a cloné Samus dans sa puissance maximale" },
                 { q: "Quelle substance radioactive bleue est au cœur de l'intrigue de la trilogie Metroid Prime ?", r: "Le Phazon" },
                 { q: "Quel studio rétro-américain a développé la trilogie Metroid Prime ?", r: "Retro Studios" },
@@ -241,7 +241,7 @@ const bddJeu = {
                 { q: "Quel est le nom du chien de la famille Simpson ?", r: "Petit Papa Noël (Santa's Little Helper)" }
             ],
             "Ronflex": [
-                { q: "Quelle est l'activité principale de Ronflex tout au long de la journée ?", r: "Dormir et manger" },
+                { q: "Quelle est l'activity principale de Ronflex tout au long de la journée ?", r: "Dormir et manger" },
                 { q: "Quel objet musical indispensable doit-on utiliser pour le réveiller dans Rouge/Bleu ?", r: "La Poké Flûte" },
                 { q: "De quelle pré-évolution Ronflex est-il l'évolution ?", r: "Goinfrex" },
                 { q: "Quel est le type de Ronflex ?", r: "Normal" },
@@ -405,14 +405,50 @@ function lancerNiveau() {
         const listeImages = bddJeu[7].images;
         const imagePiochee = listeImages[Math.floor(Math.random() * listeImages.length)];
         
+        // Affichage de l'image
         document.getElementById("img-gundam").src = imagePiochee.src;
-        document.getElementById("reponse-gundam").innerText = `RÉPONSE POUR LE JUGE : C'est un ${imagePiochee.type} !`;
+        
+        // Cacher le texte de la réponse au départ
+        const zoneReponse = document.getElementById("reponse-gundam");
+        zoneReponse.innerText = `RÉPONSE POUR LE JUGE : C'est un ${imagePiochee.type} !`;
+        zoneReponse.style.display = "none"; 
+
+        // Créer ou réinitialiser le bouton d'affichage s'il n'existe pas déjà
+        let btnReveal = document.getElementById("btn-reveal-gundam");
+        if (!btnReveal) {
+            btnReveal = document.createElement("button");
+            btnReveal.id = "btn-reveal-gundam";
+            btnReveal.innerText = "Afficher la réponse";
+            // Petit style rapide pour le bouton
+            btnReveal.style.marginTop = "15px";
+            btnReveal.style.padding = "10px 20px";
+            btnReveal.style.background = "#ffb300";
+            btnReveal.style.border = "none";
+            btnReveal.style.borderRadius = "5px";
+            btnReveal.style.cursor = "pointer";
+            btnReveal.style.fontWeight = "bold";
+            
+            // On l'ajoute juste au-dessus de la réponse dans la zone gundam
+            zoneGundam.insertBefore(btnReveal, zoneReponse);
+        }
+        
+        // Remettre le bouton visible et fonctionnel
+        btnReveal.style.display = "inline-block";
+        btnReveal.onclick = function() {
+            zoneReponse.style.display = "block"; // Affiche la réponse
+            btnReveal.style.display = "none";    // Cache le bouton devenu inutile
+        };
+
         return;
     }
 
     // Niveaux 1 à 6
     card.classList.remove("hidden");
     zoneGundam.classList.add("hidden");
+
+    // Supprimer le bouton de révélation s'il vient du niveau précédent
+    const btnReveal = document.getElementById("btn-reveal-gundam");
+    if (btnReveal) btnReveal.style.display = "none";
 
     const donneesNiveau = bddJeu[niveauActuel];
     const nomsPersos = Object.keys(donneesNiveau.personnages);
