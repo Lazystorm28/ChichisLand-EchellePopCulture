@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Pop Culture NFC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1 id="niveau-titre">Niveau 1 / 7</h1>
+        </header>
+
+        <main>
+            <div id="card">
+                <h2 id="perso-nom">Chargement...</h2>
+                <div id="epreuve-type">Type d'épreuve</div>
+                <div id="contenu-epreuve"></div>
+            </div>
+
+            <!-- Zone spéciale pour le niveau 7 -->
+            <div id="zone-gundam" class="hidden">
+                <img id="img-gundam" src="" alt="Robot mystère">
+                <p id="reponse-gundam"></p>
+            </div>
+        </main>
+
+        <footer>
+            <button id="btn-valider">VALIDER LE NIVEAU</button>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
