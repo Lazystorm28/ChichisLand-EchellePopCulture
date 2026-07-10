@@ -373,8 +373,14 @@ const bddJeu = {
     },
     7: {
         images: [
-            { src: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=500", type: "Gundam", name: "Exemple de Robot Japonais" },
-            { src: "https://images.unsplash.com/photo-1608889174633-43a33568d715?w=500", type: "Transformers", name: "Exemple de Camion Robot" }
+            { src: "images/gundam1.jpg", type: "Gundam" },
+            { src: "images/gundam2.jpg", type: "Gundam" },
+            { src: "images/gundam3.jpeg", type: "Gundam" },
+            { src: "images/transformers1.png", type: "Transformers" },
+            { src: "images/transformers2.jpg", type: "Transformers" },
+            { src: "images/transformers3.jpg", type: "Transformers" }
+            // Vous pouvez ajouter autant de lignes que vous avez d'images !
+            // Attention : pas de virgule sur la toute dernière ligne du tableau.
         ]
     }
 };
