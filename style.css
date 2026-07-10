@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121214;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+#game-container {
+    width: 100%;
+    max-width: 450px;
+    background: #1a1a1e;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 2px solid #323238;
+    text-align: center;
+}
+
+h1 {
+    color: #ffcc00;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#card {
+    background: #26262b;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #3a3a42;
+}
+
+#perso-nom {
+    color: #00e5ff;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+#epreuve-type {
+    display: inline-block;
+    background: #ff007f;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#contenu-epreuve {
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.item-question {
+    background: #1a1a1e;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border-left: 4px solid #ffcc00;
+}
+
+.item-question strong {
+    color: #ffcc00;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.item-question span {
+    color: #a0a0aa;
+    font-size: 0.95rem;
+    display: block;
+    margin-top: 2px;
+}
+
+#zone-gundam img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background: #000;
+}
+
+#reponse-gundam {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-top: 10px;
+}
+
+#btn-valider {
+    width: 100%;
+    background: #00c853;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
+    transition: background 0.2s;
+}
+
+#btn-valider:hover {
+    background: #00e676;
+}
+
+.hidden {
+    display: none !important;
+}
