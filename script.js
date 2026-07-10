@@ -77,12 +77,12 @@ const bddJeu = {
                 { q: "Quelle est la forme de la queue d'un Pikachu femelle ?", r: "Une forme de cœur à l'extrémité" },
                 { q: "Quelle pierre évolutive faut-il utiliser pour faire évoluer Pikachu en Raichu ?", r: "La Pierre Foudre" },
                 { q: "Quel est le numéro de Pikachu dans le Pokédex national ?", r: "#025" },
-                { q: "Dans la série animée, pourquoi le Pikachu de Sacha refuse-t-il de rester dans sa Pokéball ?", r: "Il préfère être dehors avec son dresseur et est indépendant" },
+                { q: "Dans la série animée, why le Pikachu de Sacha refuse-t-il de rester dans sa Pokéball ?", r: "Il préfère être dehors avec son dresseur et est indépendant" },
                 { q: "Comment s'appelle la pré-évolution de Pikachu ?", r: "Pichu" },
                 { q: "Quelle capacité signature de type Électrik, introduite en génération 3, Pikachu apprend-il en courant ?", r: "Électacle (Volt Tackle)" },
                 { q: "Dans le jeu Détective Pikachu, quelle est la boisson préférée de ce Pikachu ?", r: "Le café noir" },
                 { q: "Quel objet tenu, spécifique à Pikachu, double son Attaque et son Attaque Spéciale ?", r: "La Balle Lumière" },
-                { q: "Quel organe situé sur les joues de Pikachu produit de l'électricité ?", r: "Les poches électriques (les ronds rouges sur ses joues)" }
+                { q: "Quel organ situé sur les joues de Pikachu produit de l'électricité ?", r: "Les poches électriques (les ronds rouges sur ses joues)" }
             ],
             "Captain Falcon": [
                 { q: "De quelle franchise de jeux de course futuristes Captain Falcon est-il le héros ?", r: "F-Zero" },
@@ -247,7 +247,7 @@ const bddJeu = {
                 { q: "Quel est le type de Ronflex ?", r: "Normal" },
                 { q: "Combien de kilos pèse un Ronflex moyen selon le Pokédex ?", r: "460 kg" },
                 { q: "Quelle Capacité Z exclusive Ronflex peut-il utiliser dans Soleil et Lune ?", r: "Giga-Impact Apocalypse (Pulverizing Pancake)" },
-                { q: "Dans le jeu Pokémon Sleep, quel est le rôle central de Ronflex ?", r: "Il dort au centre de l'île et on étudie les styles de dodo autour de lui grâce à sa puissance" },
+                { q: "Dans le jeu Pokémon Sleep, quel est le rôle central de Ronflex ?", r: "Il dort au centre de l'île et on étudie les styles de dodo au tour de lui grâce à sa puissance" },
                 { q: "Quelle partie de son corps sert de terrain de jeu pour les enfants Pokémon ?", r: "Son gros ventre tout doux" },
                 { q: "Quelle est la seule condition pour qu'un Goinfrex évolue en Ronflex ?", r: "Avoir un niveau de Bonheur au maximum" },
                 { q: "Sous sa forme Gigamax, qu'est-ce qui pousse sur le ventre géant de Ronflex ?", r: "Un parc avec un arbre et de la pelouse (un petit écosystème)" }
@@ -373,14 +373,16 @@ const bddJeu = {
     },
     7: {
         images: [
-            { src: "images/gundam1.jpg", type: "Gundam" },
-            { src: "images/gundam2.jpg", type: "Gundam" },
-            { src: "images/gundam3.jpeg", type: "Gundam" },
-            { src: "images/transformers1.png", type: "Transformers" },
-            { src: "images/transformers2.jpg", type: "Transformers" },
-            { src: "images/transformers3.jpg", type: "Transformers" }
-            // Vous pouvez ajouter autant de lignes que vous avez d'images !
-            // Attention : pas de virgule sur la toute dernière ligne du tableau.
+            { src: "images/Gundam1.jpg", type: "Gundam" },
+            { src: "images/Gundam2.png", type: "Gundam" },
+            { src: "images/Gundam3.png", type: "Gundam" },
+            { src: "images/Gundam4.png", type: "Gundam" },
+            { src: "images/Gundam5.jpg", type: "Gundam" },
+            { src: "images/Transformers1.png", type: "Transformers" },
+            { src: "images/Transformers2.png", type: "Transformers" },
+            { src: "images/Transformers3.jpg", type: "Transformers" },
+            { src: "images/Transformers4.png", type: "Transformers" },
+            { src: "images/Transformers5.png", type: "Transformers" }
         ]
     }
 };
@@ -415,20 +417,20 @@ function lancerNiveau() {
     const donneesNiveau = bddJeu[niveauActuel];
     const nomsPersos = Object.keys(donneesNiveau.personnages);
     const persoPioche = nomsPersos[Math.floor(Math.random() * nomsPersos.length)];
-    
-    txtPerso.innerText = persoPioche;
 
     // Choix aléatoire : Action (0) ou Questions (1)
     const typeEpreuve = Math.floor(Math.random() * 2);
 
     if (typeEpreuve === 0 && donneesNiveau.actions && donneesNiveau.actions.length > 0) {
-        // Épreuve Action
+        // Épreuve Action : Aucun nom de personnage n'apparaît
+        txtPerso.innerText = ""; 
         txtType.innerText = "Action";
         txtType.style.background = "#ff007f";
         const actionPiochee = donneesNiveau.actions[Math.floor(Math.random() * donneesNiveau.actions.length)];
         zoneContenu.innerHTML = `<p style='text-align:center; font-weight:bold; font-size:1.2rem;'>${actionPiochee}</p>`;
     } else {
-        // Épreuve Questions
+        // Épreuve Questions : On affiche le nom du personnage pioché
+        txtPerso.innerText = persoPioche;
         txtType.innerText = "3 Questions";
         txtType.style.background = "#00b0ff";
         
